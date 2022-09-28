@@ -11,6 +11,12 @@
 		D09EFC8228E17100005FA24E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC8128E17100005FA24E /* ContentView.swift */; };
 		D09EFC8428E17101005FA24E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09EFC8328E17101005FA24E /* Assets.xcassets */; };
 		D09EFC8728E17101005FA24E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09EFC8628E17101005FA24E /* Preview Assets.xcassets */; };
+		D09EFC8E28E17482005FA24E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC8D28E17482005FA24E /* MenuView.swift */; };
+		D09EFC9028E174AA005FA24E /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC8F28E174AA005FA24E /* MenuViewModel.swift */; };
+		D09EFC9228E1757A005FA24E /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9128E1757A005FA24E /* ReadyView.swift */; };
+		D09EFC9428E17814005FA24E /* PlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9328E17814005FA24E /* PlankView.swift */; };
+		D09EFC9628E17843005FA24E /* PlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9528E17843005FA24E /* PlankViewModel.swift */; };
+		D09EFC9828E178BB005FA24E /* ReadyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9728E178BB005FA24E /* ReadyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		D09EFC8128E17100005FA24E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D09EFC8328E17101005FA24E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D09EFC8628E17101005FA24E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D09EFC8D28E17482005FA24E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		D09EFC8F28E174AA005FA24E /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		D09EFC9128E1757A005FA24E /* ReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyView.swift; sourceTree = "<group>"; };
+		D09EFC9328E17814005FA24E /* PlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankView.swift; sourceTree = "<group>"; };
+		D09EFC9528E17843005FA24E /* PlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankViewModel.swift; sourceTree = "<group>"; };
+		D09EFC9728E178BB005FA24E /* ReadyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,12 @@
 			children = (
 				D09EFC7F28E17100005FA24E /* MuscleApp.swift */,
 				D09EFC8128E17100005FA24E /* ContentView.swift */,
+				D09EFC8D28E17482005FA24E /* MenuView.swift */,
+				D09EFC8F28E174AA005FA24E /* MenuViewModel.swift */,
+				D09EFC9128E1757A005FA24E /* ReadyView.swift */,
+				D09EFC9728E178BB005FA24E /* ReadyViewModel.swift */,
+				D09EFC9328E17814005FA24E /* PlankView.swift */,
+				D09EFC9528E17843005FA24E /* PlankViewModel.swift */,
 				D09EFC8328E17101005FA24E /* Assets.xcassets */,
 				D09EFC8528E17101005FA24E /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09EFC9828E178BB005FA24E /* ReadyViewModel.swift in Sources */,
+				D09EFC9628E17843005FA24E /* PlankViewModel.swift in Sources */,
 				D09EFC8228E17100005FA24E /* ContentView.swift in Sources */,
+				D09EFC9228E1757A005FA24E /* ReadyView.swift in Sources */,
+				D09EFC8E28E17482005FA24E /* MenuView.swift in Sources */,
 				D09EFC8028E17100005FA24E /* MuscleApp.swift in Sources */,
+				D09EFC9028E174AA005FA24E /* MenuViewModel.swift in Sources */,
+				D09EFC9428E17814005FA24E /* PlankView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
