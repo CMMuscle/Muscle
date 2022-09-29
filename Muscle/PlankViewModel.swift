@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreMotion
 import AVFoundation
+import Charts
 
 final class PlankViewModel: ObservableObject{
     // staticでインスタンスを保持しておく
