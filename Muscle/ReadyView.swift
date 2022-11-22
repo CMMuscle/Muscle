@@ -26,6 +26,7 @@ struct ReadyView: View {
     @State var result: String = ""
     
     var body: some View {
+        NavigationView(){
         ZStack {
             
             VStack(spacing: 30){
@@ -101,7 +102,17 @@ struct ReadyView: View {
                 }
             }
         }
-        
+            // navigationbarの文字
+            .navigationBarItems(leading:
+                                    Text("Form Trainer")
+                .font(.title)
+                .frame(width: 175, alignment: .topLeading)
+                                , trailing:
+                                    Text("ブロンズ")
+                .font(.title)
+                .foregroundColor(.black)
+            )
+        }
         Spacer()
         
             .onAppear {

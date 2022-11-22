@@ -45,51 +45,52 @@ struct PlankView: View {
                             Spacer()
                         }
                         VStack {
-                            Text("中止")
-                            Button(action: {
-                                plankViewModel.stopTraining()
-                            }) {
-                                Text("■")
-                                    .font(.largeTitle)
-                                    .bold()
-                                    .padding()
-                                    .frame(width: 100, height: 100)
-                                
-                                    .foregroundColor(Color.black)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color.red, lineWidth: 3)
-                                    )
+                            if plankViewModel.trainingFinish {
+                                Text("中止")
+                                Button(action: {
+                                    plankViewModel.stopTraining()
+                                }) {
+                                    Text("■")
+                                        .font(.largeTitle)
+                                        .bold()
+                                        .padding()
+                                        .frame(width: 100, height: 100)
+                                    
+                                        .foregroundColor(Color.black)
+                                        .overlay(
+                                            Circle()
+                                                .stroke(Color.red, lineWidth: 3)
+                                        )
+                                }
+                            } else {
+                                Button {
+                                    readyViewModel.navigated = false
+                                    menuViewModel.showingModal = false
+                                    
+                                } label: {
+                                    // 楕円形の描画
+                                    Text("お疲れさまです")
+                                        .font(.largeTitle)
+                                        .frame(width: 360, height: 100)
+                                        .foregroundColor(Color(.black))
+                                        .background(Color(.white))
+                                        .cornerRadius(24)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 1000)
+                                                .stroke(Color(.black), lineWidth: 1.0)
+                                        )
+                                }
                             }
-                        } else {
-                            Button {
-                                readyViewModel.navigated = false
-                                menuViewModel.showingModal = false
-                            }
-                        } label: {
-                            // 楕円形の描画
-                            Text("お疲れさまです")
-                                .font(.largeTitle)
-                                .frame(width: 360, height: 100)
-                                .foregroundColor(Color(.black))
-                                .background(Color(.white))
-                                .cornerRadius(24)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 1000)
-                                        .stroke(Color(.black), lineWidth: 1.0)
-                                )
                         }
                     }
                 }
+                .onAppear{
+                    plankViewModel.plank()
+                }
             }
-        }
-        .onAppear{
-            plankViewModel.plank()
         }
     }
 }
-
-
 struct PlankView_Previews: PreviewProvider {
     static var previews: some View {
         PlankView(readyViewModel: ReadyViewModel(), menuViewModel: MenuViewModel())
