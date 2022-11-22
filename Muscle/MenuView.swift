@@ -9,33 +9,67 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject var viewModel = MenuViewModel()
-    @State var image: String = ""
+    @State var message = ""
+    let screen = UIScreen.main.bounds
+    
+    
     
     var body: some View {
-        ZStack {
-            VStack {
-                Image("\(viewModel.leftMenu[0])")
-                    .resizable()
-                    .frame(width: 150, height: 200)
-                    .aspectRatio(contentMode: .fit)
-                    .overlay(
-                        Text("\(viewModel.leftMenu[0])")
-                            .frame(width: 150, height: 200,alignment: .top)
-                    )
+        
+        NavigationView(){
+            ZStack {
+                // 背景色
+                Color(red: 0.43, green: 0.43, blue: 0.43)
+                    .ignoresSafeArea()
                 
-                Button(action: {
-                    image = viewModel.leftMenu[0]
-                    viewModel.showingModal.toggle()
-                }){
-                    Text("選択")
-                        .frame(width: 150, height: 50)
-                        .background(Color.yellow)
+                VStack{
+                    HStack {
+                        // 筋トレ名
+                        Text("腕立て")
+                            .font(.title2)
+                            .padding()
+                        Spacer()
+                    }
+                    ZStack {
+                        // ブロック背景
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color(red: 0.49, green: 0.49, blue: 0.49))
+                            .frame(maxWidth: screen.width * 0.84, maxHeight: screen.height * 0.39)
+                        Image("プランク")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: screen.width * 0.82, height: screen.height * 0.39)
+                        
+                    }
+                    Spacer()
+                    ZStack {
+                        // ブロック背景
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color(red: 0.49, green: 0.49, blue: 0.49))
+                        
+                            .frame(maxWidth: screen.width * 0.84, maxHeight: screen.height * 0.29)
+                        Image("plankBody")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: screen.width * 0.75, maxHeight: screen.height * 0.26)
+                        
+                    }
+                    .padding()
                 }
-                .fullScreenCover(isPresented: $viewModel.showingModal) {
-                    ReadyView(menuViewModel: viewModel, image: image)
-                }
+                
             }
+            // navigationbarの文字
+            .navigationBarItems(leading:
+                                    Text("Form Trainer")
+                .font(.title)
+                .frame(width: 175, alignment: .topLeading)
+                                , trailing:
+                                    Text("ブロンズ")
+                .font(.title)
+                .foregroundColor(.black)
+            )
         }
+        
     }
 }
 

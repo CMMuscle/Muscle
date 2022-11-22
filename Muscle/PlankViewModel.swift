@@ -21,6 +21,10 @@ final class PlankViewModel: ObservableObject{
     
     var backColor = Color.white
     
+    private init() {
+        
+    }
+    
     // 音声
     private var speechSynthesizer : AVSpeechSynthesizer!
     
@@ -54,8 +58,7 @@ final class PlankViewModel: ObservableObject{
     var stopSpeacTimer: Timer?
     var pauseTimer: Timer?
     
-    // シングルトンにするためにinitを潰す
-    private init() {}
+    
     
     func startQueuedUpdates() {
         // ジャイロセンサーが使えない場合はこの先の処理をしない
