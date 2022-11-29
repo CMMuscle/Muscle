@@ -28,6 +28,7 @@ struct SignUpView: View {
                         .resizable()
                         .frame(width: screen.width * 0.84, height: screen.height * 0.27)
                         .cornerRadius(49)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 }
                 
                 Spacer()
@@ -36,6 +37,7 @@ struct SignUpView: View {
                     RoundedRectangle(cornerRadius: 28)
                         .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                     
                     TextField("メールアドレス", text: $mail)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
@@ -51,6 +53,7 @@ struct SignUpView: View {
                     RoundedRectangle(cornerRadius: 28)
                         .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                     
                     TextField("パスワード", text: $password)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
@@ -66,6 +69,7 @@ struct SignUpView: View {
                     RoundedRectangle(cornerRadius: 28)
                         .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                     
                     TextField("パスワード（確認用）", text: $password)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
@@ -80,6 +84,7 @@ struct SignUpView: View {
                         .background(Color("purple"))
                         .cornerRadius(28)
                         .padding()
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
                 
                 Spacer()
