@@ -27,6 +27,7 @@ struct StartView: View {
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 75, trailing: 0))
                     .tabViewStyle(.page)
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 }
                 
                 Button(action: {
@@ -37,6 +38,7 @@ struct StartView: View {
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
                         .background(Color("purple"))
                         .cornerRadius(28)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
                 
                 Button(action: {
@@ -48,6 +50,7 @@ struct StartView: View {
                         .background(Color("purple"))
                         .cornerRadius(28)
                         .padding()
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
                 
                 Spacer()
@@ -67,11 +70,13 @@ struct startBlock: View {
                 RoundedRectangle(cornerRadius: 28)
                     .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
                     .frame(width: screen.width * 0.84, height: screen.height * 0.3)
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 
                 Image("プランク")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: screen.width * 0.82, height: screen.height * 0.3)
+                
             }
             
             ZStack {
@@ -79,6 +84,7 @@ struct startBlock: View {
                     .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
                     .frame(width: screen.width * 0.84, height: screen.height * 0.25)
                     .padding()
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 
                 VStack {
                     Text("グラフで日々の記録")

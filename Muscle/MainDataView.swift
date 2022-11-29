@@ -16,7 +16,7 @@ struct MainDataView: View {
     @Environment(\.dismiss) var dismiss
     
     // グラフ切り替え
-    @State var training =  ["メニュー","体重","体脂肪"]
+    let training =  ["メニュー","体重","体脂肪"]
     @State var currentTab = 0
     @State var color = ["ブルガリアンスクワット": Color.yellow,"プランク": .white, "腹筋": Color.red,   "サイドプランク": Color.orange, "スクワット": Color.blue,"腕立て": Color.green]
     
@@ -82,7 +82,7 @@ struct MainDataView: View {
                         
                         VStack {
                             Picker(selection: $currentTab, label: Text("フルーツを選択")) {
-                                ForEach(0 ..< training.count) { num in
+                                ForEach(0..<training.count, id: \.self){ num in
                                     Text(self.training[num])
                                 }
                             }
@@ -123,15 +123,18 @@ struct MainDataView: View {
                                         .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
                                         .frame(width: screen.width * 0.42, height: screen.height * 0.18)
                                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
+                                    
                                     Circle()
                                         .trim(from: 0, to: 1)
                                         .stroke(stat.color.opacity(0.05), lineWidth: 10)
-                                        .frame(width: (UIScreen.main.bounds.width - 150) / 2, height: (UIScreen.main.bounds.width - 150) / 2)
+                                        .frame(width: screen.width * 0.29, height: screen.height * 0.13)
+                                    
                                     Circle()
                                         .trim(from: 0, to: (stat.currentData / stat.goal))
                                         .stroke(stat.color, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                                        .frame(width: (UIScreen.main.bounds.width - 150) / 2, height: (UIScreen.main.bounds.width - 150) / 2)
+                                        .frame(width: screen.width * 0.29, height: screen.height * 0.13)
                                         .rotationEffect(.init(degrees: -90))
+                                    
                                     VStack {
                                         Text("2")
                                             .padding(2)
