@@ -10,6 +10,7 @@
 		D053A37429358FBB00514873 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37329358FBB00514873 /* FirebaseAuth */; };
 		D053A37629358FBB00514873 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37529358FBB00514873 /* FirebaseFirestore */; };
 		D053A37829358FBB00514873 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37729358FBB00514873 /* FirebaseFirestoreSwift */; };
+		D053A37A2935C74700514873 /* ForgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D053A3792935C74700514873 /* ForgetView.swift */; };
 		D09EFC8028E17100005FA24E /* MuscleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC7F28E17100005FA24E /* MuscleApp.swift */; };
 		D09EFC8228E17100005FA24E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC8128E17100005FA24E /* ContentView.swift */; };
 		D09EFC8428E17101005FA24E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09EFC8328E17101005FA24E /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D053A3792935C74700514873 /* ForgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetView.swift; sourceTree = "<group>"; };
 		D09EFC7C28E17100005FA24E /* Muscle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muscle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09EFC7F28E17100005FA24E /* MuscleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleApp.swift; sourceTree = "<group>"; };
 		D09EFC8128E17100005FA24E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				D0FB440F2930498100D6756D /* SideMenuView.swift */,
 				D0FB4415293457E400D6756D /* LoginView.swift */,
 				D0FB441A2934742800D6756D /* SignUpView.swift */,
+				D053A3792935C74700514873 /* ForgetView.swift */,
 				D0FB441C2934823400D6756D /* StartView.swift */,
 				D0FB441E29349C5600D6756D /* MainDataView.swift */,
 				D0FB4417293473F400D6756D /* Old */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09EFC9828E178BB005FA24E /* ReadyViewModel.swift in Sources */,
+				D053A37A2935C74700514873 /* ForgetView.swift in Sources */,
 				D09EFC9628E17843005FA24E /* PlankViewModel.swift in Sources */,
 				D09EFC8228E17100005FA24E /* ContentView.swift in Sources */,
 				D0FB4414293063C200D6756D /* RecordView.swift in Sources */,
