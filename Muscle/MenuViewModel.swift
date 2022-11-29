@@ -11,12 +11,11 @@ import UIKit
 
 class MenuViewModel: ObservableObject {
     @Published var showingModal = false
-    @Published var SettingModal = false
     let menu = ["プランク","ブルガリアンスクワット","腹筋","バックプランク","スクワット","腕立て"]
-    
     
     // 各itemの幅
     private let ITEM_PADDING: CGFloat = 20
+    
     // offset移動アニメーション時間
     private let OFFSET_X_ANIMATION_TIME: Double = 0.2
     private var cancellableSet: Set<AnyCancellable> = []
@@ -33,13 +32,17 @@ class MenuViewModel: ObservableObject {
     
     
     init() {
+        
+        // Navigationbarの色変更
         setupNavigationBar()
         
+        // カールセルの個数分の配列を入れる
         self.infinityArray = createInfinityArray(menu)
         
         $currentIndex
             .receive(on: RunLoop.main)
             .sink { index in
+                
                 // 2要素未満の場合は、無限スクロールにしないため処理は必要なし
                 if self.menu.count < 2 {
                     return
@@ -67,6 +70,7 @@ class MenuViewModel: ObservableObject {
             .store(in: &cancellableSet)
     }
     
+    // navigationbarの色変更
     func setupNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -77,14 +81,17 @@ class MenuViewModel: ObservableObject {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
-    /// 擬似無限スクロール用の配列を生成：ex) [1,2,3]→[2,3,1,2,3,1,2]
+    // 擬似無限スクロール用の配列を生成：ex) [1,2,3]→[2,3,1,2,3,1,2]
     private func createInfinityArray(_ targetArray: [String]) -> [String] {
         if targetArray.count > 1 {
             var result: [String] = []
+            
             // 最後の2要素
             result += targetArray.suffix(2)
+            
             // 本来の配列
             result += targetArray
+            
             // 最初の2要素
             result += targetArray.prefix(2).map { $0 }
             
@@ -95,14 +102,15 @@ class MenuViewModel: ObservableObject {
     }
 }
 
-/// 各種メソッド
+// 各種メソッド
 extension MenuViewModel{
-    /// itemPadding
+    
+    // itemPadding
     func carouselItemPadding() -> CGFloat {
         return ITEM_PADDING
     }
     
-    /// カルーセル各要素のWidth
+    // カルーセル各要素のWidth
     func carouselItemWidth() -> CGFloat {
         return UIScreen.main.bounds.width * 0.84
     }
@@ -111,17 +119,17 @@ extension MenuViewModel{
         return UIScreen.main.bounds.height * 0.39
     }
     
-    /// itemを中央に配置するためにカルーセルのleading paddingを返す
+    // itemを中央に配置するためにカルーセルのleading paddingを返す
     func carouselLeadingPadding(index: Int, bodyView: GeometryProxy) -> CGFloat {
         return index == 0 ? bodyView.size.width * 0.081 : 0
     }
     
-    /// カルーセルのOffsetのX値を返す
+    // カルーセルのOffsetのX値を返す
     func carouselOffsetX(bodyView: GeometryProxy) -> CGFloat {
         return -CGFloat(self.currentIndex) * (UIScreen.main.bounds.width * 0.84 + self.ITEM_PADDING)
     }
     
-    /// ドラッグ操作
+    // ドラッグ操作
     func onChangedDragGesture() {
         // ドラッグ時にはアニメーション有効
         if self.isOffsetAnimation == false {
@@ -129,9 +137,10 @@ extension MenuViewModel{
         }
     }
     
-    /// ドラッグ操作によるcurrentIndexの操作
+    // ドラッグ操作によるcurrentIndexの操作
     func updateCurrentIndex(dragGestureValue: _ChangedGesture<GestureStateGesture<DragGesture, CGFloat>>.Value, bodyView: GeometryProxy) {
         var newIndex = currentIndex
+        
         // ドラッグ幅からページングを判定
         if abs(dragGestureValue.translation.width) > bodyView.size.width * 0.3 {
             newIndex = dragGestureValue.translation.width > 0 ? self.currentIndex - 1 : self.currentIndex + 1
