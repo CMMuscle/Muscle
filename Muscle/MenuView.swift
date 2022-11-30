@@ -65,7 +65,7 @@ struct MenuView: View {
                                 
                                 // 画面遷移
                                 .navigationDestination(for: String.self) { string in
-                                    RecordView()
+                                    TrainingView( trainingName: "プランク")
                                 }
                                 
                             }
@@ -75,7 +75,7 @@ struct MenuView: View {
                         }
                         
                         Spacer()
-
+                        
                         ZStack {
                             
                             // ブロック背景
@@ -149,7 +149,7 @@ struct trainingItem: View {
                             Image(viewModel.infinityArray[index])
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: viewModel.carouselItemWidth(), height: viewModel.carouselItemHeight())
+                                .frame(width: viewModel.carouselItemWidth(), height: screen.height * 0.15)
                             // 筋トレ名
                             Text(viewModel.infinityArray[index])
                                 .foregroundColor(.white)

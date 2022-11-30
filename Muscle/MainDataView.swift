@@ -70,7 +70,7 @@ struct MainDataView: View {
                             }
                         }
                     }
-                    .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: screen.height * 0.035, leading: 0, bottom: 0, trailing: 0))
                     
                     // グラフ
                     ZStack {
@@ -162,7 +162,7 @@ struct MainDataView: View {
                         }, label: {
                             Text("＜ホーム")
                                 .foregroundColor(.white)
-                                .font(.largeTitle)
+                                .font(.title)
                         }
                     )
                 }
