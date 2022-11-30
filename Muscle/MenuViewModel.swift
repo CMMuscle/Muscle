@@ -81,7 +81,7 @@ class MenuViewModel: ObservableObject {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
-    // 擬似無限スクロール用の配列を生成：ex) [1,2,3]→[2,3,1,2,3,1,2]
+    // 擬似無限スクロール用の配列を生成
     private func createInfinityArray(_ targetArray: [String]) -> [String] {
         if targetArray.count > 1 {
             var result: [String] = []
