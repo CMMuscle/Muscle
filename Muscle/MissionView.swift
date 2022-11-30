@@ -1,5 +1,5 @@
 //
-//  MIssionView.swift
+//  MissionView.swift
 //  Muscle
 //
 //  Created by 稗田一亜 on 2022/11/29.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MIssionView: View {
+struct MissionView: View {
     let screen = UIScreen.main.bounds
     
     var body: some View {
@@ -64,8 +64,8 @@ struct MIssionView: View {
     }
 }
 
-struct MIssionView_Previews: PreviewProvider {
+struct MissionView_Previews: PreviewProvider {
     static var previews: some View {
-        MIssionView()
+        MissionView()
     }
 }
