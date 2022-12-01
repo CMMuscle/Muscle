@@ -23,7 +23,8 @@
 		D09EFC9428E17814005FA24E /* PlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9328E17814005FA24E /* PlankView.swift */; };
 		D09EFC9628E17843005FA24E /* PlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9528E17843005FA24E /* PlankViewModel.swift */; };
 		D09EFC9828E178BB005FA24E /* ReadyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC9728E178BB005FA24E /* ReadyViewModel.swift */; };
-		D0A95E06293719EC00E09253 /* SubDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A95E05293719EC00E09253 /* SubDataView.swift */; };
+		D0B6B1EB293868350046B1E4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6B1EA293868350046B1E4 /* SignUpViewModel.swift */; };
+		D0B6B1ED293885690046B1E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B6B1EC293885690046B1E4 /* GoogleService-Info.plist */; };
 		D0FB44102930498100D6756D /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB440F2930498100D6756D /* SideMenuView.swift */; };
 		D0FB4414293063C200D6756D /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB4413293063C200D6756D /* RecordView.swift */; };
 		D0FB4416293457E400D6756D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB4415293457E400D6756D /* LoginView.swift */; };
@@ -47,7 +48,8 @@
 		D09EFC9328E17814005FA24E /* PlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankView.swift; sourceTree = "<group>"; };
 		D09EFC9528E17843005FA24E /* PlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankViewModel.swift; sourceTree = "<group>"; };
 		D09EFC9728E178BB005FA24E /* ReadyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyViewModel.swift; sourceTree = "<group>"; };
-		D0A95E05293719EC00E09253 /* SubDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubDataView.swift; sourceTree = "<group>"; };
+		D0B6B1EA293868350046B1E4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		D0B6B1EC293885690046B1E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0FB440F2930498100D6756D /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		D0FB4413293063C200D6756D /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		D0FB4415293457E400D6756D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -97,13 +99,14 @@
 				D0917EFD2935CC6C00696E9E /* MIssionView.swift */,
 				D0FB4415293457E400D6756D /* LoginView.swift */,
 				D0FB441A2934742800D6756D /* SignUpView.swift */,
-				D053A3792935C74700514873 /* ForgetView.swift */,
+				D0B6B1EA293868350046B1E4 /* SignUpViewModel.swift */,
 				D0FB441C2934823400D6756D /* StartView.swift */,
 				D0FB441E29349C5600D6756D /* MainDataView.swift */,
 				D0917EFF2936F79A00696E9E /* TrainingView.swift */,
 				D0A95E05293719EC00E09253 /* SubDataView.swift */,
 				D0FB4417293473F400D6756D /* Old */,
 				D09EFC8328E17101005FA24E /* Assets.xcassets */,
+				D0B6B1EC293885690046B1E4 /* GoogleService-Info.plist */,
 				D09EFC8528E17101005FA24E /* Preview Content */,
 			);
 			path = Muscle;
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09EFC8728E17101005FA24E /* Preview Assets.xcassets in Resources */,
+				D0B6B1ED293885690046B1E4 /* GoogleService-Info.plist in Resources */,
 				D09EFC8428E17101005FA24E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +220,7 @@
 				D0FB441B2934742800D6756D /* SignUpView.swift in Sources */,
 				D0FB441F29349C5600D6756D /* MainDataView.swift in Sources */,
 				D0FB441D2934823400D6756D /* StartView.swift in Sources */,
+				D0B6B1EB293868350046B1E4 /* SignUpViewModel.swift in Sources */,
 				D09EFC9228E1757A005FA24E /* ReadyView.swift in Sources */,
 				D0917EFE2935CC6C00696E9E /* MIssionView.swift in Sources */,
 				D0A95E06293719EC00E09253 /* SubDataView.swift in Sources */,

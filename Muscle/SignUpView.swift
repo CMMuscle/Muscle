@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignUpView: View {
     let screen = UIScreen.main.bounds
-    @State var mail = ""
-    @State var password = ""
+    
+    @StateObject var SignUpModel = SignUpViewModel()
     
     var body: some View {
         ZStack {
@@ -39,11 +40,11 @@ struct SignUpView: View {
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                     
-                    TextField("メールアドレス", text: $mail)
+                    TextField("メールアドレス", text: $SignUpModel.mail)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
                 }
                 
-                Text("英数字大文字小文字含めた8文字〜16文字")
+                Text("受信できるメールアドレスを使用してください")
                     .foregroundColor(.white)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -55,15 +56,12 @@ struct SignUpView: View {
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                     
-                    TextField("パスワード", text: $password)
+                    SecureField("パスワード", text: $SignUpModel.password)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+                        
                 }
                 
-                Text("英数字大文字小文字含めた8文字〜16文字")
-                    .foregroundColor(.white)
-                    .font(.footnote)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+               
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 28)
@@ -71,14 +69,15 @@ struct SignUpView: View {
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                     
-                    TextField("パスワード（確認用）", text: $password)
+                    SecureField("パスワード（確認用）", text: $SignUpModel.subPassword)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+                        
                 }
                 
                 Button(action: {
-                    
+                    SignUpModel.signUp(mail: SignUpModel.mail, password: SignUpModel.password, subPassword: SignUpModel.subPassword)
                 }, label: {
-                    Text("ログイン")
+                    Text("登録")
                         .foregroundColor(.white)
                         .frame(width: screen.width * 0.84, height: screen.height * 0.05)
                         .background(Color("purple"))
