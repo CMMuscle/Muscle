@@ -29,46 +29,41 @@ class SignUpViewModel: ObservableObject {
     let passwordText = "[^a-zA-Z0-9]"
     
     // SignUpを行う
-    func signUp(mail: String, password: String, subPassword: String) {
-        
-        
-        
+    func signUp(mail: String, password: String, subPassword: String) -> AlertItem {
+
         if mail == "" { // メールが空白
             print("m空欄")
-            return notAuth  = "mailBlank"
+            return AlertItem(alert: Alert(title: Text("メールアドレスが空欄です")))
         } else if password == "" { // パスワード空白
             print("p空欄")
-            return notAuth  = "passBlank"
+            return AlertItem(alert: Alert(title: Text("パスワードが空欄です")))
         } else if mail.range(of: mailText, options: .regularExpression, range: nil, locale: nil) != nil {
             print("mだめ")
-            return notAuth = "mailFail"
+            return AlertItem(alert: Alert(title: Text("メールアドレスが不適切です")))
         }  else if password.range(of: passwordText, options: .regularExpression, range: nil, locale: nil) != nil {
             print("pだめ")
-            return notAuth = "passFail"
-        } else if mail.count < 6 {
-            print("6m")
-            return notAuth = "mailCount"
-        } else if password.count < 6 {
-            print("6p")
-            return notAuth = "passCount"
+            return AlertItem(alert: Alert(title: Text("パスワードが不適切です")))
+        } else if password.count < 8 {
+            print("8p")
+            return AlertItem(alert: Alert(title: Text("パスワードは最小8文字からです")))
         } else if password != subPassword {
             print("notp")
-            return notAuth = "passMatch"
+            return AlertItem(alert: Alert(title: Text("パスワードが一致しません")))
         }else {
             Auth.auth().createUser(withEmail: mail, password: password) { result , error in
                 if error != nil {
                     print(error!.localizedDescription)
-                    if error!.localizedDescription == "The email address is badly formatted." {
-                        print("damepppp")
-                        return self.notAuth = "mailFormat"
-                    }
-                        
+//                    if error!.localizedDescription == "The email address is badly formatted." {
+//                        print("damepppp")
+//                        return self.showingAlert = AlertItem(alert: Alert(title: Text("メールアドレスが不適切です")))
+//                    }
                 } else {
                     print("-==---")
                     print(result)
+                    
                 }
-                
             }
+            return AlertItem(alert: Alert(title: Text("登録できました")))            
         }
     }
 }
