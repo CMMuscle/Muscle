@@ -12,6 +12,7 @@ struct SignUpView: View {
     let screen = UIScreen.main.bounds
     
     @StateObject var SignUpModel = SignUpViewModel()
+    @State var showingAlert: AlertItem?
     
     var body: some View {
         ZStack {
@@ -49,7 +50,7 @@ struct SignUpView: View {
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
-                    
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 28)
                         .fill(Color(red: 0.50, green: 0.50, blue: 0.50))
@@ -58,10 +59,14 @@ struct SignUpView: View {
                     
                     SecureField("パスワード", text: $SignUpModel.password)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
-                        
+                    
                 }
                 
-               
+                Text("英数字記号(. _ -)のみ使用可能")
+                    .foregroundColor(.white)
+                    .font(.footnote)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 28)
@@ -71,7 +76,7 @@ struct SignUpView: View {
                     
                     SecureField("パスワード（確認用）", text: $SignUpModel.subPassword)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
-                        
+                    
                 }
                 
                 Button(action: {
@@ -85,6 +90,7 @@ struct SignUpView: View {
                         .padding()
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
+               
                 
                 Spacer()
                 
@@ -92,6 +98,8 @@ struct SignUpView: View {
         }
     }
 }
+
+
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
