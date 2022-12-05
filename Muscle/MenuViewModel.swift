@@ -16,6 +16,8 @@ class MenuViewModel: ObservableObject {
     // 各itemの幅
     private let ITEM_PADDING: CGFloat = 20
     
+    @Published var flag = false
+    
     // offset移動アニメーション時間
     private let OFFSET_X_ANIMATION_TIME: Double = 0.2
     private var cancellableSet: Set<AnyCancellable> = []

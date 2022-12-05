@@ -24,6 +24,23 @@ struct MenuView: View {
                 // 背景色
                 Color(red: 0.43, green: 0.43, blue: 0.43)
                     .ignoresSafeArea()
+                    .gesture(
+                        DragGesture()
+                        // 画面から指を離した時のアクション
+                            .onEnded({ value in
+                                
+                                // 右スワイプ時
+                                if value.translation.width > 10  {
+                                    
+                                    // 画面遷移を許可
+                                    viewModel.flag = true
+                                    
+                                } else if value.translation.width < -10{
+                                    // スワイプ時
+                                    viewModel.flag = false
+                                }
+                            })
+                    )
                 
                 VStack{
                     
@@ -106,6 +123,29 @@ struct MenuView: View {
                             .foregroundColor(.black)
                     )
                 }
+                
+                SideMenuView()
+                    .frame(width: screen.width * 0.5, height: screen.height)
+                    .offset(x: viewModel.flag ? 0 :  -500)
+                    .animation(.default, value: viewModel.flag)
+                    .gesture(
+                        DragGesture()
+                        // 画面から指を離した時のアクション
+                            .onEnded({ value in
+                                
+                                // 右スワイプ時
+                                if value.translation.width > 10  {
+                                    
+                                    // 画面遷移を許可
+                                    viewModel.flag = true
+                                    
+                                } else if value.translation.width < -10{
+                                    // スワイプ時
+                                    viewModel.flag = false
+                                }
+                            })
+                    )
+                    
             }
         }
     }
