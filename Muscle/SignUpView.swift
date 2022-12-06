@@ -12,8 +12,7 @@ struct SignUpView: View {
     let screen = UIScreen.main.bounds
     
     @StateObject var SignUpModel = SignUpViewModel()
-    @State private var showingAlert: AlertItem?
-    
+    @State var showing: AlertItem?
     var body: some View {
         ZStack {
             
@@ -80,7 +79,16 @@ struct SignUpView: View {
                 }
                 
                 Button(action: {
-                    showingAlert = SignUpModel.signUp(mail: SignUpModel.mail, password: SignUpModel.password, subPassword: SignUpModel.subPassword)
+                    print("3498")
+                    SignUpModel.signUp()
+                    SignUpModel.viewChange = true
+                    DispatchQueue.main.asyncAfter ( deadline: DispatchTime.now() + 3.5) {
+                        print("324")
+                        showing = SignUpModel.showingAlert
+                        SignUpModel.viewChange = false
+                    }
+                    
+                    
                 }, label: {
                     Text("登録")
                         .foregroundColor(.white)
@@ -90,15 +98,22 @@ struct SignUpView: View {
                         .padding()
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
-                .alert(item: $showingAlert) { alert in
+                .alert(item: $showing) { alert in
                     alert.alert
                 }
-               
+                
+                
+                
                 
                 Spacer()
                 
             }
             
+            if SignUpModel.viewChange {
+                ProgressView()
+            } else {
+                
+            }
         }
     }
 }

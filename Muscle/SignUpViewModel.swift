@@ -7,6 +7,8 @@
 
 import FirebaseAuth
 import SwiftUI
+import Combine
+
 
 
 struct AlertItem: Identifiable {
@@ -15,6 +17,8 @@ struct AlertItem: Identifiable {
 }
 
 class SignUpViewModel: ObservableObject {
+    
+    @Published var viewChange = false
     
     @Published var mail = ""
     @Published var password = ""
@@ -29,41 +33,50 @@ class SignUpViewModel: ObservableObject {
     let passwordText = "[^a-zA-Z0-9]"
     
     // SignUpを行う
-    func signUp(mail: String, password: String, subPassword: String) -> AlertItem {
-
+    func signUp(){
+        
         if mail == "" { // メールが空白
             print("m空欄")
-            return AlertItem(alert: Alert(title: Text("メールアドレスが空欄です")))
+            self.showingAlert = AlertItem(alert: Alert(title: Text("メールアドレスが空欄です")))
         } else if password == "" { // パスワード空白
             print("p空欄")
-            return AlertItem(alert: Alert(title: Text("パスワードが空欄です")))
+            self.showingAlert = AlertItem(alert: Alert(title: Text("パスワードが空欄です")))
         } else if mail.range(of: mailText, options: .regularExpression, range: nil, locale: nil) != nil {
             print("mだめ")
-            return AlertItem(alert: Alert(title: Text("メールアドレスが不適切です")))
+            self.showingAlert = AlertItem(alert: Alert(title: Text("メールアドレスが不適切です")))
         }  else if password.range(of: passwordText, options: .regularExpression, range: nil, locale: nil) != nil {
             print("pだめ")
-            return AlertItem(alert: Alert(title: Text("パスワードが不適切です")))
+            self.showingAlert = AlertItem(alert: Alert(title: Text("パスワードが不適切です")))
         } else if password.count < 8 {
             print("8p")
-            return AlertItem(alert: Alert(title: Text("パスワードは最小8文字からです")))
+            self.showingAlert = AlertItem(alert: Alert(title: Text("パスワードは最小8文字からです")))
         } else if password != subPassword {
             print("notp")
-            return AlertItem(alert: Alert(title: Text("パスワードが一致しません")))
+            self.showingAlert = AlertItem(alert: Alert(title: Text("パスワードが一致しません")))
         }else {
             Auth.auth().createUser(withEmail: mail, password: password) { result , error in
                 if error != nil {
                     print(error!.localizedDescription)
-//                    if error!.localizedDescription == "The email address is badly formatted." {
-//                        print("damepppp")
-//                        return self.showingAlert = AlertItem(alert: Alert(title: Text("メールアドレスが不適切です")))
-//                    }
+                    if error!.localizedDescription == "The email address is badly formatted." {
+                        print("damepppp")
+                        self.showingAlert = AlertItem(alert: Alert(title: Text("メールアドレスが不適切です")))
+                    } else if error!.localizedDescription == "The email address is already in use by another account." {
+                        print("doao;jf;oiaj")
+                        self.showingAlert = AlertItem(alert: Alert(title: Text("そのメールアドレスはすでに登録済みです")))
+                    }
                 } else {
                     print("-==---")
                     print(result)
+                    Auth.auth().currentUser?.sendEmailVerification { error in
+                        print("33333333")
+                        self.showingAlert = AlertItem(alert: Alert(title: Text("メールアドレスの認証をお願いいたします")))
+                    }
                     
                 }
             }
-            return AlertItem(alert: Alert(title: Text("登録できました")))            
+            
+            
+        
         }
     }
 }
