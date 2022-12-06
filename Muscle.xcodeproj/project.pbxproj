@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D01D6E42293EFE09007614FF /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01D6E41293EFE09007614FF /* ForgetViewModel.swift */; };
+		D01D6E44293F0F07007614FF /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01D6E43293F0F07007614FF /* SideMenuViewModel.swift */; };
 		D053A37429358FBB00514873 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37329358FBB00514873 /* FirebaseAuth */; };
 		D053A37629358FBB00514873 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37529358FBB00514873 /* FirebaseFirestore */; };
 		D053A37829358FBB00514873 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37729358FBB00514873 /* FirebaseFirestoreSwift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		D01D6E41293EFE09007614FF /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
+		D01D6E43293F0F07007614FF /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		D053A3792935C74700514873 /* ForgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetView.swift; sourceTree = "<group>"; };
 		D0917EFD2935CC6C00696E9E /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		D0917EFF2936F79A00696E9E /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D09EFC8D28E17482005FA24E /* MenuView.swift */,
 				D09EFC8F28E174AA005FA24E /* MenuViewModel.swift */,
 				D0FB440F2930498100D6756D /* SideMenuView.swift */,
+				D01D6E43293F0F07007614FF /* SideMenuViewModel.swift */,
 				D0917EFD2935CC6C00696E9E /* MissionView.swift */,
 				D0FB4415293457E400D6756D /* LoginView.swift */,
 				D0FB441A2934742800D6756D /* SignUpView.swift */,
@@ -237,6 +240,7 @@
 				D0FB441D2934823400D6756D /* StartView.swift in Sources */,
 				D0B6B1EB293868350046B1E4 /* SignUpViewModel.swift in Sources */,
 				D09EFC9228E1757A005FA24E /* ReadyView.swift in Sources */,
+				D01D6E44293F0F07007614FF /* SideMenuViewModel.swift in Sources */,
 				D0B6B1F7293890710046B1E4 /* SubDataView.swift in Sources */,
 				D01D6E42293EFE09007614FF /* ForgetViewModel.swift in Sources */,
 				D0917EFE2935CC6C00696E9E /* MissionView.swift in Sources */,

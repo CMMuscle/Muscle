@@ -8,108 +8,150 @@
 import SwiftUI
 
 struct SideMenuView: View {
+    @StateObject var sideMenuViewModel = SideMenuViewModel()
     var body: some View {
-        ZStack {
-            Color(red: 0.43, green: 0.43, blue: 0.43)
-                .ignoresSafeArea()
-            HStack {
-                VStack(spacing: 0) {
-                    Group {
-                        
-                        
-                        Rectangle()
-                            .fill(Color(red: 0.31, green: 0.31, blue: 0.31))
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.32)
-                        
-                        Rectangle()
-                            .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                            .overlay(
+        NavigationStack(path: $sideMenuViewModel.path) {
+            ZStack {
+                HStack {
+                    VStack(spacing: 0) {
+                        Group {
+                            Rectangle()
+                                .fill(Color(red: 0.31, green: 0.31, blue: 0.31))
+                                .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.32)
+                            ZStack {
                                 Rectangle()
-                                    .frame(height: 2)
-                                    .foregroundColor(.white),
-                                alignment: .bottom
-                            )
-                        Rectangle()
-                            .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                            .overlay(
+                                    .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                    .overlay(
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(.white),
+                                        alignment: .bottom
+                                    )
+                                
+                                Text("名前")
+                                    .foregroundColor(.white)
+                            }
+                            
+                            ZStack {
                                 Rectangle()
-                                    .frame(height: 2)
-                                    .foregroundColor(.white),
-                                alignment: .bottom
-                            )
+                                    .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                    .overlay(
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(.white),
+                                        alignment: .bottom
+                                    )
+                                
+                                Text("測定結果入力")
+                                    .foregroundColor(.white)
+                            }
+                            Rectangle()
+                                .fill(Color(red: 0.43, green: 0.43, blue: 0.43))
+                                .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.099)
+                                .overlay(
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .foregroundColor(.white),
+                                    alignment: .bottom
+                                )
+                            
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                    .overlay(
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(.white),
+                                        alignment: .bottom
+                                    )
+                                
+                                Text("ユーザー情報")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        NavigationLink(destination: MainDataView()) {
+                            ZStack {
+                                
+                                Rectangle()
+                                    .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                    .overlay(
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(.white),
+                                        alignment: .bottom
+                                    )
+                                
+                                Text("統計")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        NavigationLink(destination: MissionView()) {
+                            ZStack {
+                                
+                                Rectangle()
+                                    .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                    .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                    .overlay(
+                                        Rectangle()
+                                            .frame(height: 2)
+                                            .foregroundColor(.white),
+                                        alignment: .bottom
+                                    )
+                                Text("ミッション")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        
                         Rectangle()
                             .fill(Color(red: 0.43, green: 0.43, blue: 0.43))
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.099)
+                            .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.15)
                             .overlay(
                                 Rectangle()
                                     .frame(height: 2)
                                     .foregroundColor(.white),
                                 alignment: .bottom
                             )
-                        Rectangle()
-                            .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                            .overlay(
-                                Rectangle()
-                                    .frame(height: 2)
-                                    .foregroundColor(.white),
-                                alignment: .bottom
-                            )
+                        
+                        ZStack {
+                            Rectangle()
+                                .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                .overlay(
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .foregroundColor(.white),
+                                    alignment: .bottom
+                                )
+                            
+                            Text("設定")
+                                .foregroundColor(.white)
+                        }
+                        
+                        ZStack {
+                            Rectangle()
+                                .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
+                                .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.height * 0.05)
+                                .overlay(
+                                    Rectangle()
+                                        .frame(height: 2)
+                                        .foregroundColor(.white),
+                                    alignment: .bottom
+                                )
+                            
+                            Text("ログアウト")
+                                .foregroundColor(.white)
+                        }
                     }
-                    Rectangle()
-                        .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                        .overlay(
-                            Rectangle()
-                                .frame(height: 2)
-                                .foregroundColor(.white),
-                            alignment: .bottom
-                        )
-                    Rectangle()
-                        .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                        .overlay(
-                            Rectangle()
-                                .frame(height: 2)
-                                .foregroundColor(.white),
-                            alignment: .bottom
-                        )
-                    Rectangle()
-                        .fill(Color(red: 0.43, green: 0.43, blue: 0.43))
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.15)
-                        .overlay(
-                            Rectangle()
-                                .frame(height: 2)
-                                .foregroundColor(.white),
-                            alignment: .bottom
-                        )
-                    Rectangle()
-                        .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                        .overlay(
-                            Rectangle()
-                                .frame(height: 2)
-                                .foregroundColor(.white),
-                            alignment: .bottom
-                        )
-                    Rectangle()
-                        .fill(Color(red: 0.43, green: 0.35, blue: 0.66))
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.05)
-                        .overlay(
-                            Rectangle()
-                                .frame(height: 2)
-                                .foregroundColor(.white),
-                            alignment: .bottom
-                        )
+                    
+                    Spacer()
                     
                 }
-                Spacer()
             }
-            
         }
-        
     }
 }
 
