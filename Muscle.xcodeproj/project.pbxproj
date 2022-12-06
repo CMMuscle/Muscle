@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01D6E42293EFE09007614FF /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01D6E41293EFE09007614FF /* ForgetViewModel.swift */; };
 		D053A37429358FBB00514873 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37329358FBB00514873 /* FirebaseAuth */; };
 		D053A37629358FBB00514873 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37529358FBB00514873 /* FirebaseFirestore */; };
 		D053A37829358FBB00514873 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D053A37729358FBB00514873 /* FirebaseFirestoreSwift */; };
-		D0917EFE2935CC6C00696E9E /* MIssionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0917EFD2935CC6C00696E9E /* MIssionView.swift */; };
+		D0917EFE2935CC6C00696E9E /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0917EFD2935CC6C00696E9E /* MissionView.swift */; };
 		D0917F002936F79A00696E9E /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0917EFF2936F79A00696E9E /* TrainingView.swift */; };
 		D09EFC8028E17100005FA24E /* MuscleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC7F28E17100005FA24E /* MuscleApp.swift */; };
 		D09EFC8228E17100005FA24E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09EFC8128E17100005FA24E /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D01D6E41293EFE09007614FF /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
 		D053A3792935C74700514873 /* ForgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetView.swift; sourceTree = "<group>"; };
 		D0917EFD2935CC6C00696E9E /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		D0917EFF2936F79A00696E9E /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				D0B6B1EA293868350046B1E4 /* SignUpViewModel.swift */,
 				D0FB441C2934823400D6756D /* StartView.swift */,
 				D0B6B1F4293890600046B1E4 /* ForgetView.swift */,
+				D01D6E41293EFE09007614FF /* ForgetViewModel.swift */,
 				D0FB441E29349C5600D6756D /* MainDataView.swift */,
 				D0917EFF2936F79A00696E9E /* TrainingView.swift */,
 				D0B6B1F6293890710046B1E4 /* SubDataView.swift */,
@@ -235,7 +238,8 @@
 				D0B6B1EB293868350046B1E4 /* SignUpViewModel.swift in Sources */,
 				D09EFC9228E1757A005FA24E /* ReadyView.swift in Sources */,
 				D0B6B1F7293890710046B1E4 /* SubDataView.swift in Sources */,
-				D0917EFE2935CC6C00696E9E /* MIssionView.swift in Sources */,
+				D01D6E42293EFE09007614FF /* ForgetViewModel.swift in Sources */,
+				D0917EFE2935CC6C00696E9E /* MissionView.swift in Sources */,
 				D09EFC8E28E17482005FA24E /* MenuView.swift in Sources */,
 				D09EFC8028E17100005FA24E /* MuscleApp.swift in Sources */,
 				D0FB44102930498100D6756D /* SideMenuView.swift in Sources */,

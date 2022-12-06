@@ -79,11 +79,9 @@ struct SignUpView: View {
                 }
                 
                 Button(action: {
-                    print("3498")
                     SignUpModel.signUp()
                     SignUpModel.viewChange = true
                     DispatchQueue.main.asyncAfter ( deadline: DispatchTime.now() + 3.5) {
-                        print("324")
                         showing = SignUpModel.showingAlert
                         SignUpModel.viewChange = false
                     }
@@ -102,13 +100,9 @@ struct SignUpView: View {
                     alert.alert
                 }
                 
-                
-                
-                
                 Spacer()
                 
             }
-            
             if SignUpModel.viewChange {
                 ProgressView()
             } else {
