@@ -13,6 +13,8 @@ struct SignUpView: View {
     
     @StateObject var SignUpModel = SignUpViewModel()
     @State var showing: AlertItem?
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack {
             
@@ -22,7 +24,19 @@ struct SignUpView: View {
             
             VStack {
                 
-                Spacer()
+                HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("<")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                    }
+                    
+                    Spacer()
+
+                }
                 
                 ZStack {
                     Image("FormTrainer")

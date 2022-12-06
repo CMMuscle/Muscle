@@ -12,6 +12,8 @@ struct ForgetView: View {
     @StateObject var forgetViewModel = ForgetViewModel()
     @State private var showing: AlertItem?
     
+    @Binding var showingModal: Bool
+    
     var body: some View {
         ZStack {
             
@@ -56,7 +58,12 @@ struct ForgetView: View {
                     forgetViewModel.viewChange = true
                     
                     // 処理の遅延を調節
-                    DispatchQueue.main.asyncAfter ( deadline: DispatchTime.now() + 1.0) {
+                    DispatchQueue.main.asyncAfter ( deadline: DispatchTime.now() + 1.5) {
+                        if forgetViewModel.sucess {
+                            forgetViewModel.showingAlert = AlertItem(alert: Alert(title: Text("メールを送信しました"), dismissButton: .default(Text("OK"),action: {
+                                showingModal = false
+                            })))
+                        }
                         showing = forgetViewModel.showingAlert
                         forgetViewModel.viewChange = false
                     }
@@ -77,15 +84,7 @@ struct ForgetView: View {
             }
             if forgetViewModel.viewChange {
                 ProgressView()
-            } else {
-                
             }
         }
-    }
-}
-
-struct ForgetView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForgetView()
     }
 }

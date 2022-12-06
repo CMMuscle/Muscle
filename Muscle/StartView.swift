@@ -9,8 +9,9 @@ import SwiftUI
 
 struct StartView: View {
     let screen = UIScreen.main.bounds
-    @State var mail = ""
-    @State var password = ""
+    @State var signUpModal = false
+    @State var loginModal = false
+    
     var body: some View {
         
         ZStack {
@@ -31,7 +32,7 @@ struct StartView: View {
                 }
                 
                 Button(action: {
-                    
+                    signUpModal = true
                 }, label: {
                     Text("新規アカウント登録")
                         .foregroundColor(.white)
@@ -40,9 +41,12 @@ struct StartView: View {
                         .cornerRadius(28)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
+                .fullScreenCover(isPresented: $signUpModal) {
+                    SignUpView()
+                }
                 
                 Button(action: {
-                    
+                    loginModal = true
                 }, label: {
                     Text("ログイン")
                         .foregroundColor(.white)
@@ -52,6 +56,9 @@ struct StartView: View {
                         .padding()
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
+                .fullScreenCover(isPresented: $loginModal) {
+                    LoginView()
+                }
                 
                 Spacer()
                 
