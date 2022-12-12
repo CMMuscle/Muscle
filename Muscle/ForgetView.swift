@@ -13,6 +13,7 @@ struct ForgetView: View {
     @State private var showing: AlertItem?
     
     @Binding var showingModal: Bool
+    @FocusState var focus: Bool
     
     var body: some View {
         ZStack {
@@ -20,6 +21,9 @@ struct ForgetView: View {
             // 背景色
             Color(red: 0.43, green: 0.43, blue: 0.43)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    focus = false
+                }
             VStack {
                 
                 Spacer()
@@ -30,6 +34,9 @@ struct ForgetView: View {
                         .resizable()
                         .frame(width: forgetViewModel.screen.width * 0.84, height: forgetViewModel.screen.height * 0.27)
                         .cornerRadius(49)
+                }
+                .onTapGesture {
+                    focus = false
                 }
                 
                 Spacer()
@@ -42,6 +49,7 @@ struct ForgetView: View {
                     
                     TextField("メールアドレス", text: $forgetViewModel.mail)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+                        .keyboardType(UIKeyboardType.emailAddress)
                 }
                 
                 Text("登録されているメールアドレスに送信します")
@@ -52,7 +60,7 @@ struct ForgetView: View {
                 
                 // ログイン
                 Button(action: {
-                    
+                    focus = false
                     // パスワードリセット
                     forgetViewModel.resetPassword()
                     forgetViewModel.viewChange = true

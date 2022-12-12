@@ -12,6 +12,7 @@ struct LoginView: View {
     @StateObject var loginViewModel = LoginViewModel()
     @State private var showing: AlertItem?
     @Environment(\.dismiss) var dismiss
+    @FocusState var focus: Bool
     
     var body: some View {
         ZStack {
@@ -19,6 +20,9 @@ struct LoginView: View {
             // 背景色
             Color(red: 0.43, green: 0.43, blue: 0.43)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    focus = false
+                }
             
             VStack {
                 
@@ -45,6 +49,9 @@ struct LoginView: View {
                         .frame(width: loginViewModel.screen.width * 0.84, height: loginViewModel.screen.height * 0.27)
                         .cornerRadius(49)
                 }
+                .onTapGesture {
+                    focus = false
+                }
                 
                 Spacer()
                 
@@ -58,6 +65,8 @@ struct LoginView: View {
                     
                     TextField("メールアドレス", text: $loginViewModel.mail)
                         .padding(EdgeInsets(top: 0, leading: loginViewModel.screen.width * 0.11, bottom: 0, trailing: 0))
+                        .focused($focus)
+                        .keyboardType(UIKeyboardType.emailAddress)
                 }
                 
                 // パスワード
@@ -71,10 +80,12 @@ struct LoginView: View {
                     
                     SecureField("パスワード", text: $loginViewModel.password)
                         .padding(EdgeInsets(top: 0, leading: loginViewModel.screen.width * 0.11, bottom: 0, trailing: 0))
+                        .focused(self.$focus)
                 }
                 
                 // ログイン
                 Button(action: {
+                    focus = false
                     loginViewModel.login()
                     loginViewModel.viewChange = true
                     DispatchQueue.main.asyncAfter ( deadline: DispatchTime.now() + 3.5) {
@@ -99,6 +110,7 @@ struct LoginView: View {
                 
                 // パスワード忘れ
                 Button(action: {
+                    focus = false
                     loginViewModel.showingModal = true
                 }, label: {
                     Text("パスワードを忘れた方はこちら")

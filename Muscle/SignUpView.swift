@@ -14,6 +14,7 @@ struct SignUpView: View {
     @StateObject var SignUpModel = SignUpViewModel()
     @State var showing: AlertItem?
     @Environment(\.dismiss) var dismiss
+    @FocusState var focus: Bool
     
     var body: some View {
         ZStack {
@@ -21,6 +22,9 @@ struct SignUpView: View {
             // 背景色
             Color(red: 0.43, green: 0.43, blue: 0.43)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    focus = false
+                }
             
             VStack {
                 
@@ -45,6 +49,9 @@ struct SignUpView: View {
                         .cornerRadius(49)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 }
+                .onTapGesture {
+                    focus = false
+                }
                 
                 Spacer()
                 
@@ -56,6 +63,8 @@ struct SignUpView: View {
                     
                     TextField("メールアドレス", text: $SignUpModel.mail)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+                        .focused(self.$focus)
+                        .keyboardType(UIKeyboardType.emailAddress)
                 }
                 
                 Text("受信できるメールアドレスを使用してください")
@@ -72,10 +81,11 @@ struct SignUpView: View {
                     
                     SecureField("パスワード", text: $SignUpModel.password)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+                        .focused(self.$focus)
                     
                 }
                 
-                Text("英数字記号(. _ -)のみ使用可能")
+                Text("英数字記号(. _ -)8文字以上のみ使用可能")
                     .foregroundColor(.white)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -89,10 +99,12 @@ struct SignUpView: View {
                     
                     SecureField("パスワード（確認用）", text: $SignUpModel.subPassword)
                         .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
+                        .focused(self.$focus)
                     
                 }
                 
                 Button(action: {
+                    focus = false
                     SignUpModel.signUp()
                     SignUpModel.viewChange = true
                     DispatchQueue.main.asyncAfter ( deadline: DispatchTime.now() + 3.5) {

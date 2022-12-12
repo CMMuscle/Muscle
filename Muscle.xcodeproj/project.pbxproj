@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00554582941CA4F0042EF27 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00554572941CA4F0042EF27 /* StartViewModel.swift */; };
 		D01D6E42293EFE09007614FF /* ForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01D6E41293EFE09007614FF /* ForgetViewModel.swift */; };
 		D01D6E44293F0F07007614FF /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01D6E43293F0F07007614FF /* SideMenuViewModel.swift */; };
 		D01D6E46293F20A8007614FF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01D6E45293F20A8007614FF /* LoginViewModel.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00554572941CA4F0042EF27 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		D01D6E41293EFE09007614FF /* ForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewModel.swift; sourceTree = "<group>"; };
 		D01D6E43293F0F07007614FF /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		D01D6E45293F20A8007614FF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				D0FB441A2934742800D6756D /* SignUpView.swift */,
 				D0B6B1EA293868350046B1E4 /* SignUpViewModel.swift */,
 				D0FB441C2934823400D6756D /* StartView.swift */,
+				D00554572941CA4F0042EF27 /* StartViewModel.swift */,
 				D0B6B1F4293890600046B1E4 /* ForgetView.swift */,
 				D01D6E41293EFE09007614FF /* ForgetViewModel.swift */,
 				D0FB441E29349C5600D6756D /* MainDataView.swift */,
@@ -241,6 +244,7 @@
 				D0FB4414293063C200D6756D /* RecordView.swift in Sources */,
 				D0FB441B2934742800D6756D /* SignUpView.swift in Sources */,
 				D0FB441F29349C5600D6756D /* MainDataView.swift in Sources */,
+				D00554582941CA4F0042EF27 /* StartViewModel.swift in Sources */,
 				D0FB441D2934823400D6756D /* StartView.swift in Sources */,
 				D0B6B1EB293868350046B1E4 /* SignUpViewModel.swift in Sources */,
 				D09EFC9228E1757A005FA24E /* ReadyView.swift in Sources */,

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct StartView: View {
-    let screen = UIScreen.main.bounds
-    @State var signUpModal = false
-    @State var loginModal = false
+    
+    
+    @StateObject var startViewModel = StartViewModel()
     
     var body: some View {
         
@@ -21,42 +21,49 @@ struct StartView: View {
             
             VStack {
                 Group {
-                    TabView{
+                    TabView(selection: $startViewModel.currentTab){
                         // チュートリアル画面
                         startBlock()
+                            .tag(0)
                         startBlock()
+                            .tag(1)
+                        startBlock()
+                            .tag(2)
+                        
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 75, trailing: 0))
                     .tabViewStyle(.page)
                     .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
+                    
+                        
                 }
                 
                 Button(action: {
-                    signUpModal = true
+                    startViewModel.signUpModal = true
                 }, label: {
                     Text("新規アカウント登録")
                         .foregroundColor(.white)
-                        .frame(width: screen.width * 0.84, height: screen.height * 0.05)
+                        .frame(width: startViewModel.screen.width * 0.84, height: startViewModel.screen.height * 0.05)
                         .background(Color("purple"))
                         .cornerRadius(28)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
-                .fullScreenCover(isPresented: $signUpModal) {
+                .fullScreenCover(isPresented: $startViewModel.signUpModal) {
                     SignUpView()
                 }
                 
                 Button(action: {
-                    loginModal = true
+                    startViewModel.loginModal = true
                 }, label: {
                     Text("ログイン")
                         .foregroundColor(.white)
-                        .frame(width: screen.width * 0.84, height: screen.height * 0.05)
+                        .frame(width: startViewModel.screen.width * 0.84, height: startViewModel.screen.height * 0.05)
                         .background(Color("purple"))
                         .cornerRadius(28)
                         .padding()
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 0)
                 })
-                .fullScreenCover(isPresented: $loginModal) {
+                .fullScreenCover(isPresented: $startViewModel.loginModal) {
                     LoginView()
                 }
                 
